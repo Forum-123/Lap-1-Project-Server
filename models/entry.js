@@ -8,7 +8,7 @@ class Entry {
         this.date = new Date();
         this.username = data.username;
         this.gif = data.gif;
-        this.reactions = { happy: 0, love: 0, angry: 0 }
+        this.reactions = { happy: 0, love: 0, angry: 0 };
         this.comments = [];
     }
    

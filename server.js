@@ -52,9 +52,7 @@ app.post('/entries', (req, res) => {
     if (!newData.title || !newData.username || !newData.message || !newData.gif) {
         return res.status(400).json({ message: 'Please fill in the required title, username, message and gif fields' });
     } else {
-        Entry.addEntry(newData);
-        const newId = newData.id;
-        const newEntry = Entry.getEntry(newId);
+        const newEntry = Entry.addEntry(newData);
         res.status(201).send(newEntry);
     }
 });
