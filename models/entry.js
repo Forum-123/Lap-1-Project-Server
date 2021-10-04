@@ -8,7 +8,7 @@ class Entry {
         this.date = new Date();
         this.username = data.username;
         this.gif = data.gif;
-        this.reactions = { happy: 0, love: 0, angry: 0 }
+        this.reactions = { happy: 0, love: 0, angry: 0 };
         this.comments = [];
     }
    
@@ -20,30 +20,39 @@ class Entry {
 
     // READ one entry
     static getEntry(id) {
-        const entries = Entry.all;
-        const selectedEntry = entries.filter((entry) => entry.id === id);
+        const selectedEntry = entryData.filter((entry) => entry.id === id);
         return selectedEntry;
     }
 
     // READ all entries by one username
     static getEntryByUsername(username) {
-        const entries = Entry.all;
-        const selectedEntries = entries.filter((entry) => entry.username === username);
+        const selectedEntries = entryData.filter((entry) => entry.username === username);
         return selectedEntries;
     }
 
     // CREATE entry
     static addEntry(data) {
         const newId = entryData.length + 1;
-        const newEntry = new Entry({ id: newId, ...data});
+        const newEntry = new Entry({ id: newId, ...data });
         entryData.push(newEntry);
         return newEntry;
     }
 
     // CREATE comment
-    static addComment(id, comment) {
-        const seenEntry = Entry.getEntry(id);
-        seenEntry.comments.push(comment);
+    static addComment(id, comment, username) {
+        // console.log(entryData.comments)
+        // const newComment = `c${entryData.comments.length + 1}`;
+        const selectedEntry = Entry.getEntry(id);
+        console.log(selectedEntry.comments)
+        console.log(selectedEntry.comments.length)
+        const newCommentId = selectedEntry.comments.length + 1;
+        console.log(newCommentId)
+        const newComment = new Entry.comments({ id: newCommentId, text: comment, author: username })
+        selectedEntry.comments.push(newComment);
+        return newComment;
+        // const seenEntry = Entry.getEntry(id);
+        // seenEntry.comments.push(comment);
+        // return 
     }
 
     // UPDATE entry's message
@@ -63,8 +72,9 @@ class Entry {
 
     // DELETE entry
     static deleteEntry(id) {
-        const entry = entryData.filter((entry) => entry.id === this.id)[0];
+        const entry = entryData.filter((entry) => entry.id === id)[0];
         entryData.splice(entryData.indexOf(entry), 1);
+        return entryData;
     }
 
     // DELETE comment

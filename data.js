@@ -13,12 +13,13 @@ let entryData = [
             love: 6,
             angry: 8,
         },
-        comments: {
-            c1: {
+        comments: [
+            { 
+                id: 1, 
                 text: "I feel like starting an argument, so: What actor, living or dead, any gender, was the greatest combination of acting talent, physical beauty and pure star-power charisma?",
                 author: "Scott Renshaw"
             }
-        }
+        ]
     },
     {
         id: 2,

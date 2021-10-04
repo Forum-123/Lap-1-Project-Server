@@ -6,6 +6,7 @@ app.use(express.json());
 app.use(cors());
 
 const Entry = require('./models/entry'); // Obtain the Entry class
+const { addComment } = require('./models/entry');
 
 // Get all entries
 app.get('/entries', (req, res) => {
@@ -44,25 +45,6 @@ app.get('/entries/comments/:id', (req, res) => {
     res.status(404).json({ message: `Entry of id ${requestedId} not found` });
 });
 
-// Get a gif based on a search term
-app.get('/gifs/:search', (req, res) => {
-    let searchWord = req.params.search;
-    let possibleGifs = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${searchWord}`
-
-    // Search term is required
-    if (!searchWord) {
-        return res.status(400).json({ message: 'Please enter a search word' });
-    } else {
-        fetch(possibleGifs)
-            .then(function (gifs) {
-                res.send(gifs.data.data);
-            })
-            .catch(function (error) {
-                return res.json({ message: `${error.message}` })
-            });
-    }
-});
-
 // Post new entry
 app.post('/entries', (req, res) => {
     const newData = req.body;
@@ -71,9 +53,7 @@ app.post('/entries', (req, res) => {
     if (!newData.title || !newData.username || !newData.message || !newData.gif) {
         return res.status(400).json({ message: 'Please fill in the required title, username, message and gif fields' });
     } else {
-        Entry.addEntry(newData);
-        const newId = newData.id;
-        const newEntry = Entry.getEntry(newId);
+        const newEntry = Entry.addEntry(newData);
         res.status(201).send(newEntry);
     }
 });
@@ -82,15 +62,16 @@ app.post('/entries', (req, res) => {
 app.post('/entries/comments/:id', (req, res) => {
     const entriesArr = Entry.all;
     const requestedId = parseInt(req.params.id);
-    const newComment = req.body.comment;
+    const newComment = req.body.comments;
+    console.log(req.body)
 
-    // Check an id is requested or if it is requested, if it is in the existing entries
-    if (requestedId || entriesArr.id.includes(requestedId)) {
-        Entry.addComment(requestedId, newComment);
-        const entry = Entry.getEntry(requestedId);
-        res.status(201).send(entry);
-    } else {
-        return res.status(404).json({ message: `Entry of id ${id} not found` });
+    for (let e of entriesArr) {
+        if (e.id === requestedId) {
+            let addedComment = Entry.addComment(requestedId, newComment);
+            res.status(201).send(addedComment);
+        } else {
+            return res.status(404).json({ message: `Entry of id ${requestedId} not found` });
+        }
     }
 });
 
@@ -112,13 +93,16 @@ app.put('/entries/reactions/:id', (req, res) => {
 app.delete('/entries/delete/:id', (req, res) => {
     const entriesArr = Entry.all;
     let requestedId = parseInt(req.params.id);
-    
-    if (requestedId || entriesArr.id.includes(requestedId)) {
-        Entry.deleteEntry(requestedId);
-        res.json({ message: `Entry of id ${id} successfully deleted`});
-    } else {
-        return res.status(404).json({ message: `Entry of id ${id} not found` });
+    console.log(requestedId)
+
+    for (let e of entriesArr) {
+        if (e.id === requestedId) {
+            Entry.deleteEntry(requestedId);
+            return res.status(204).json({ message: `Entry of id ${requestedId} successfully deleted` });
+        }
     }
+
+    return res.status(404).json({ message: `Entry of id ${requestedId} not found` });
 });
 
 module.exports = app;
