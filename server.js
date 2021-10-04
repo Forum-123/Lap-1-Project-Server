@@ -6,7 +6,6 @@ app.use(express.json());
 app.use(cors());
 
 const Entry = require('./models/entry'); // Obtain the Entry class
-const { addComment } = require('./models/entry');
 
 // Get all entries
 app.get('/entries', (req, res) => {
@@ -38,7 +37,7 @@ app.get('/entries/comments/:id', (req, res) => {
     for (let e of entriesArr) {
         if (e.id === requestedId) {
             let entry = Entry.getEntry(requestedId)
-            return res.send(entry.comments)
+            return res.send(entry[0].comments)
         }
     }
 
@@ -79,14 +78,17 @@ app.post('/entries/comments/:id', (req, res) => {
 app.put('/entries/reactions/:id', (req, res) => {
     const entriesArr = Entry.all;
     const requestedId = parseInt(req.params.id);
-    const reaction = req.body.target;
+    console.log(req.body);
+    const reaction = req.body.reactions;
     
-    if (requestedId || entriesArr.id.includes(requestedId)) {
-        Entry.changeReaction(requestedId, reaction);
-        res.status(201).json({ message: 'Reaction successfully updated'});
-    } else {
-        return res.status(404).json({ message: `Entry of id ${id} not found` });
+    for (let e of entriesArr) {
+        if (e.id === requestedId) {
+            Entry.changeReaction(requestedId, reaction);
+            res.status(201).json({ message: 'Reaction successfully updated'});
+        }
     }
+
+    res.status(404).json({ message: `Entry of id ${id} not found` });
 });
 
 // Delete entry
