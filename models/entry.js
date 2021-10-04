@@ -55,7 +55,7 @@ class Entry {
     // UPDATE reaction
     static changeReaction(id, newReaction) {
         const entry = Entry.getEntry(id);
-        entry.reactions[newReaction]++;
+        entry[0].reactions[newReaction]++;
         return entry;
     }
 
