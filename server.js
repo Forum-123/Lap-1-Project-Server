@@ -63,7 +63,6 @@ app.post('/entries/comments/:id', (req, res) => {
     const requestedId = parseInt(req.params.id);
     const newComment = req.body.text;
     const author = req.body.author;
-    console.log(req.body)
 
     for (let e of entriesArr) {
         if (e.id === requestedId) {
@@ -80,7 +79,7 @@ app.put('/entries/reactions/:id', (req, res) => {
     const entriesArr = Entry.all;
     const requestedId = parseInt(req.params.id);
     console.log(req.body);
-    const reaction = req.body.reactions;
+    const reaction = req.body;
     
     for (let e of entriesArr) {
         if (e.id === requestedId) {
@@ -106,6 +105,23 @@ app.delete('/entries/delete/:id', (req, res) => {
     }
 
     return res.status(404).json({ message: `Entry of id ${requestedId} not found` });
+});
+
+// Delete comment
+app.delete('/entries/comments/delete/:entryId/:commentId', (req, res) => {
+    const entriesArr = Entry.all;
+    let requestedEntry = parseInt(req.params.entryId);
+    let requestedComment = parseInt(req.params.commentId)
+    console.log(`${requestedEntry}, ${requestedEntry}`)
+
+    for (let e of entriesArr) {
+        if (e.id === requestedEntry) {
+            Entry.deleteComment(requestedEntry, requestedComment);
+            return res.status(204).json({ message: `Comment ${requestedComment} from entry of id ${requestedEntry} successfully deleted` });
+        }
+    }
+
+    return res.status(404).json({ message: `Comment ${requestedComment} from entry of id ${requestedEntry} not found` });
 });
 
 module.exports = app;
