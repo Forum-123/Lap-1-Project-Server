@@ -53,7 +53,7 @@ app.post('/entries', (req, res) => {
         return res.status(400).json({ message: 'Please fill in the required title, username, message and gif fields' });
     } else {
         const newEntry = Entry.addEntry(newData);
-        res.status(201).send(newEntry);
+        return res.status(201).send(newEntry);
     }
 });
 
@@ -67,11 +67,10 @@ app.post('/entries/comments/:id', (req, res) => {
     for (let e of entriesArr) {
         if (e.id === requestedId) {
             let addedComment = Entry.addComment(requestedId, newComment, author);
-            res.status(201).send(addedComment);
-        } else {
-            return res.status(404).json({ message: `Entry of id ${requestedId} not found` });
+            return res.status(201).send(addedComment);
         }
     }
+    res.status(404).json({ message: `Entry of id ${requestedId} not found` });
 });
 
 // Change reaction on an entry
@@ -84,7 +83,7 @@ app.put('/entries/reactions/:id', (req, res) => {
     for (let e of entriesArr) {
         if (e.id === requestedId) {
             Entry.changeReaction(requestedId, reaction);
-            res.status(201).json({ message: 'Reaction successfully updated'});
+            return res.status(201).json({ message: 'Reaction successfully updated'});
         }
     }
 
@@ -104,7 +103,7 @@ app.delete('/entries/delete/:id', (req, res) => {
         }
     }
 
-    return res.status(404).json({ message: `Entry of id ${requestedId} not found` });
+    res.status(404).json({ message: `Entry of id ${requestedId} not found` });
 });
 
 // Delete comment
@@ -121,7 +120,7 @@ app.delete('/entries/comments/delete/:entryId/:commentId', (req, res) => {
         }
     }
 
-    return res.status(404).json({ message: `Comment ${requestedComment} from entry of id ${requestedEntry} not found` });
+    res.status(404).json({ message: `Comment ${requestedComment} from entry of id ${requestedEntry} not found` });
 });
 
 module.exports = app;
