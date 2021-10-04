@@ -15,8 +15,8 @@ let entryData = {
         },
         comments: {
             c1: {
-                text = "I feel like starting an argument, so: What actor, living or dead, any gender, was the greatest combination of acting talent, physical beauty and pure star-power charisma?",
-                author = "Scott Renshaw"
+                text: "I feel like starting an argument, so: What actor, living or dead, any gender, was the greatest combination of acting talent, physical beauty and pure star-power charisma?",
+                author: "Scott Renshaw"
             }
         }
     },
@@ -34,8 +34,8 @@ let entryData = {
         },
         comments: {
             c1: {
-                text = "",
-                author = ""
+                text: "",
+                author: ""
             }
         }
     },
@@ -53,8 +53,8 @@ let entryData = {
         },
         comments: {
             c1: {
-                text = "",
-                author = ""
+                text: "",
+                author: ""
             }
         }
     },
@@ -72,8 +72,8 @@ let entryData = {
         },
         comments: {
             c1: {
-                text = "",
-                author = ""
+                text: "",
+                author: ""
             }
         }
     },
@@ -91,8 +91,8 @@ let entryData = {
         },
         comments: {
             c1: {
-                text = "",
-                author = ""
+                text: "",
+                author: ""
             }
         } 
     },
@@ -110,8 +110,8 @@ let entryData = {
         },
         comments: {
             c1: {
-                text = "",
-                author = ""
+                text: "",
+                author: ""
             }
         } 
     },
@@ -129,8 +129,8 @@ let entryData = {
         },
         comments: {
             c1: {
-                text = "",
-                author = ""
+                text: "",
+                author: ""
             }
         } 
     },
@@ -148,8 +148,8 @@ let entryData = {
         },
         comments: {
             c1: {
-                text = "",
-                author = ""
+                text: "",
+                author: ""
             }
         }
     }, 
@@ -168,8 +168,8 @@ let entryData = {
         },
         comments: {
             c1: {
-                text = "",
-                author = ""
+                text: "",
+                author: ""
             }
         }
     }, 
@@ -187,8 +187,8 @@ let entryData = {
         },
         comments: {
             c1: {
-                text = "",
-                author = ""
+                text: "",
+                author: ""
             }
         }
     }
