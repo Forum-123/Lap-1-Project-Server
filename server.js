@@ -6,6 +6,7 @@ app.use(express.json());
 app.use(cors());
 
 const Entry = require('./models/entry'); // Obtain the Entry class
+const { changeEntry } = require('./models/entry');
 
 // Get all entries
 app.get('/entries', (req, res) => {
@@ -73,6 +74,22 @@ app.post('/entries/comments/:id', (req, res) => {
     res.status(404).json({ message: `Entry of id ${requestedId} not found` });
 });
 
+// Change message on an entry
+app.put('/entries/:id', (req, res) => {
+    const entriesArr = Entry.all;
+    const requestedId = parseInt(req.params.id);
+    const newMessage = req.body.message;
+
+    for (let e of entriesArr) {
+        if (e.id === requestedId) {
+            Entry.changeEntry(requestedId, newMessage);
+            return res.status(201).json({ message: `Entry of id ${requestedId} successfully updated` });
+        }
+    }
+
+     res.status(404).json({ message: `Entry of id ${requestedId} not found` })
+});
+
 // Change reaction on an entry
 app.put('/entries/reactions/:id', (req, res) => {
     const entriesArr = Entry.all;
@@ -87,7 +104,7 @@ app.put('/entries/reactions/:id', (req, res) => {
         }
     }
 
-    res.status(404).json({ message: `Entry of id ${id} not found` });
+    res.status(404).json({ message: `Entry of id ${requestedId} not found` });
 });
 
 // Delete entry

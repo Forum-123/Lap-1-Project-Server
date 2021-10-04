@@ -47,9 +47,9 @@ class Entry {
 
     // UPDATE entry's message
     static changeEntry(id, newMessage) {
-        const oldEntry = Entry.getEntry(id);
-        oldEntry.message = newMessage;
-        return oldEntry;
+        const entry = Entry.getEntry(id);
+        entry[0].message = newMessage;
+        return entry;
     }
 
     // UPDATE reaction
