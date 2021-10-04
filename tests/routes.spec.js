@@ -40,10 +40,23 @@ describe('APi routes', (done) => {
         request(app)
             .get('/entries/comments/:id')
             .set('Accept', 'application/json')
+            .expect({ id: 2, comments: { c1: { text: "", author: "" } } })
             .expect('Content-Type', /json/)
             .expect(200, done);
 
     })
+
+    // test(" Post new comment on a particular entry", (done) => {
+    //     request(api)
+    //         .post('/entries/comments/:id')
+    //         .send()
+    //         .set('Accept', 'application/json') //set - will set what we expect to get from this
+    //         .expect('content-Type', /json/) // expect to get back some json
+    //         .expect()
+    //         .expect(201, done) // 201 = status code when something is successfully created
+    // })
+
+
 
 })
 
