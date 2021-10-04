@@ -18,14 +18,14 @@ app.get('/entries/:username', (req, res) => {
     const entriesArr = Entry.all;
     const requestedUsername = req.params.username;
 
-    for (let entry of entriesArr) {
-        // Check an username is requested or if it is requested, if it is in the existing entries
-        if (entry.username === requestedUsername) {
-            let index = entriesArr.indexOf(entry);
+    for (let e of entriesArr) {
+        if (e.username === requestedUsername) {
+            let index = entriesArr.indexOf(e);
             let entriesByUsername = Entry.getEntryByUsername(entriesArr[index].username);
             return res.send(entriesByUsername);
         }
     }
+
     res.status(404).json({ message: `Entry by username ${requestedUsername} not found` });
 });
 
@@ -34,13 +34,14 @@ app.get('/entries/comments/:id', (req, res) => {
     const entriesArr = Entry.all;
     const requestedId = parseInt(req.params.id);
 
-    // Check an id is requested or if it is requested, if it is in the existing entries
-    if (requestedId || entriesArr.id.includes(requestedId)) {
-        const entry = Entry.getEntry(requestedId);
-        res.json(entry.comments);
-    } else {
-        return res.status(404).json({ message: `Entry of id ${id} not found` });
+    for (let e of entriesArr) {
+        if (e.id === requestedId) {
+            let entry = Entry.getEntry(requestedId)
+            return res.send(entry.comments)
+        }
     }
+
+    res.status(404).json({ message: `Entry of id ${requestedId} not found` });
 });
 
 // Get a gif based on a search term
@@ -121,4 +122,3 @@ app.delete('/entries/delete/:id', (req, res) => {
 });
 
 module.exports = app;
-
