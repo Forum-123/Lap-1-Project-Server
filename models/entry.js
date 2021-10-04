@@ -4,11 +4,11 @@ class Entry {
     constructor(data) {
         this.id = data.id;
         this.title = data.title;
+        this.message = data.message;
         this.date = new Date();
         this.username = data.username;
-        this.reactions = { happy: 0, love: 0}
-        this.message = data.message;
         this.gif = data.gif;
+        this.reactions = { happy: 0, love: 0, angry: 0 }
         this.comments = [];
     }
    
@@ -56,8 +56,8 @@ class Entry {
     // UPDATE reaction
     static changeReaction(id, oldReaction, newReaction) {
         const entry = Entry.getEntry(id);
-        entry.reactions[newReaction] ++;
-        entry.reactions[oldReaction] --;
+        entry.reactions[newReaction]++;
+        entry.reactions[oldReaction]--;
         return entry;
     }
 
