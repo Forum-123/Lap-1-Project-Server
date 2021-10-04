@@ -27,7 +27,7 @@ describe('APi routes', (done) => {
 
     })
 
-    test('', () => {
+    test('Get all entries by a particular user', () => {
         request(app)
             .get('/entries/:username')
             .set('Accept', 'application/json')
