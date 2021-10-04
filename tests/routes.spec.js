@@ -36,12 +36,14 @@ describe('APi routes', (done) => {
 
     })
 
+
+
     test('Get all comments on a particular entry', () => {
         request(app)
-            .get('/entries/comments/:id')
+            .get('/entries/comments/2')
             .set('Accept', 'application/json')
-            .expect({ id: 2, comments: { c1: { text: "", author: "" } } })
             .expect('Content-Type', /json/)
+            .expect([{ id: 1, text: "", author: "" }])
             .expect(200, done);
 
     })
