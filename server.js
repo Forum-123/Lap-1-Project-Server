@@ -23,7 +23,7 @@ app.get('/entries/:username', (req, res) => {
             let index = entriesArr.indexOf(e);
             let entriesByUsername = Entry.getEntryByUsername(entriesArr[index].username);
             return res.send(entriesByUsername);
-        } 
+        }
     }
 
     res.status(404).json({ message: `Entry by username ${requestedUsername} not found` });
@@ -99,10 +99,10 @@ app.put('/entries/reactions/:id', (req, res) => {
     const entriesArr = Entry.all;
     const requestedId = parseInt(req.params.id);
     const reaction = req.body.target;
-    
+
     if (requestedId || entriesArr.id.includes(requestedId)) {
         Entry.changeReaction(requestedId, reaction);
-        res.status(201).json({ message: 'Reaction successfully updated'});
+        res.status(201).json({ message: 'Reaction successfully updated' });
     } else {
         return res.status(404).json({ message: `Entry of id ${id} not found` });
     }
@@ -112,10 +112,10 @@ app.put('/entries/reactions/:id', (req, res) => {
 app.delete('/entries/delete/:id', (req, res) => {
     const entriesArr = Entry.all;
     let requestedId = parseInt(req.params.id);
-    
+
     if (requestedId || entriesArr.id.includes(requestedId)) {
         Entry.deleteEntry(requestedId);
-        res.json({ message: `Entry of id ${id} successfully deleted`});
+        res.json({ message: `Entry of id ${id} successfully deleted` });
     } else {
         return res.status(404).json({ message: `Entry of id ${id} not found` });
     }
