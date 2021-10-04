@@ -11,9 +11,11 @@ class Entry {
         this.gif = data.gif;
         this.comments = [];
     }
-
+   
     // READ all entries
     static get all() {
+        if (!entryData) return 'no data';
+        if (!Array.isArray(entryData)) return 'not an array'
         const entries = entryData.map((je) => new Entry(je));
         return entries;
     }
@@ -25,6 +27,12 @@ class Entry {
         return selectedEntry;
     }
 
+    // READ all entries by one username
+    static getEntryByUsername(username) {
+        const entries = Entry.all;
+        const selectedEntries = entries.filter((entry) => entry.username === username);
+        return selectedEntries;
+    }
 
     // CREATE entry
     static addEntry(data) {
@@ -56,7 +64,7 @@ class Entry {
     }
 
     // DELETE entry
-    static deleteEntry() {
+    static deleteEntry(id) {
         const entry = entryData.filter((entry) => entry.id === this.id)[0];
         entryData.splice(entryData.indexOf(entry), 1);
     }
