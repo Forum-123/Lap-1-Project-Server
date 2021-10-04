@@ -61,12 +61,13 @@ app.post('/entries', (req, res) => {
 app.post('/entries/comments/:id', (req, res) => {
     const entriesArr = Entry.all;
     const requestedId = parseInt(req.params.id);
-    const newComment = req.body.comments;
+    const newComment = req.body.text;
+    const author = req.body.author;
     console.log(req.body)
 
     for (let e of entriesArr) {
         if (e.id === requestedId) {
-            let addedComment = Entry.addComment(requestedId, newComment);
+            let addedComment = Entry.addComment(requestedId, newComment, author);
             res.status(201).send(addedComment);
         } else {
             return res.status(404).json({ message: `Entry of id ${requestedId} not found` });
