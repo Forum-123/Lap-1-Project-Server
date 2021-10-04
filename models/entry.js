@@ -67,8 +67,12 @@ class Entry {
     }
 
     // DELETE comment
-    static deleteComment() {
-        // const comment = entryData.comments.filter((comment) => comment)
+    static deleteComment(entryId, commentId) {
+        const selectedEntry = Entry.getEntry(entryId);
+        const allComments = selectedEntry[0].comments;
+        const selectedComment = allComments[commentId - 1];
+        allComments.splice(allComments.indexOf(selectedComment), 1);
+        return selectedEntry;
     }
 }
 
