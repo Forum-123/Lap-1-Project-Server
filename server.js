@@ -6,7 +6,6 @@ app.use(express.json());
 app.use(cors());
 
 const Entry = require('./models/entry'); // Obtain the Entry class
-const { changeEntry } = require('./models/entry');
 
 // Get all entries
 app.get('/entries', (req, res) => {
@@ -94,16 +93,20 @@ app.put('/entries/:id', (req, res) => {
 app.put('/entries/reactions/:id', (req, res) => {
     const entriesArr = Entry.all;
     const requestedId = parseInt(req.params.id);
-    console.log(req.body);
-    const reaction = req.body;
-    
-    for (let e of entriesArr) {
-        if (e.id === requestedId) {
-            Entry.changeReaction(requestedId, reaction);
-            return res.status(201).json({ message: 'Reaction successfully updated'});
+    const newReaction = req.body.reaction;
+  
+    // object.hasOwnProperty('string') returns true if 'string' is a key in 'object'
+    if (entriesArr[0].reactions.hasOwnProperty(`${newReaction}`)) {
+        for (let e of entriesArr) {
+            if (e.id === requestedId) {
+                Entry.changeReaction(requestedId, newReaction);
+                return res.status(201).json({ message: 'Reaction successfully updated'});
+            }
         }
+    } else {
+        return res.status(400).json({ message: `${newReaction} is an invalid input` })
     }
-
+    
     res.status(404).json({ message: `Entry of id ${requestedId} not found` });
 });
 
