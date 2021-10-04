@@ -17,11 +17,27 @@ app.get('/entries', (req, res) => {
 app.get('/entries/:username', (req, res) => {
     const entriesArr = Entry.all;
     const requestedUsername = req.params.username;
-    
-    // Check an username is requested or if it is requested, if it is in the existing entries
-    if (username || entriesArr.username.includes(username)) {
-        let entriesByUsername = Entry.getEntryByUsername(requestedUsername);
-        res.json(entriesByUsername);
+
+    for (let entry of entriesArr) {
+        // Check an username is requested or if it is requested, if it is in the existing entries
+        if (entry.username === requestedUsername) {
+            let index = entriesArr.indexOf(entry);
+            let entriesByUsername = Entry.getEntryByUsername(entriesArr[index].username);
+            return res.send(entriesByUsername);
+        } 
+    }
+    res.status(404).json({ message: `Entry by username ${requestedUsername} not found` });
+});
+
+// Get all comments on a particular entry
+app.get('/entries/comments/:id', (req, res) => {
+    const entriesArr = Entry.all;
+    const requestedId = parseInt(req.params.id);
+
+    // Check an id is requested or if it is requested, if it is in the existing entries
+    if (requestedId || entriesArr.id.includes(requestedId)) {
+        const entry = Entry.getEntry(requestedId);
+        res.json(entry.comments);
     } else {
         return res.status(404).json({ message: `Entry of id ${id} not found` });
     }
@@ -68,7 +84,7 @@ app.post('/entries/comments/:id', (req, res) => {
     const newComment = req.body.comment;
 
     // Check an id is requested or if it is requested, if it is in the existing entries
-    if (id || entriesArr.id.includes(id)) {
+    if (requestedId || entriesArr.id.includes(requestedId)) {
         Entry.addComment(requestedId, newComment);
         const entry = Entry.getEntry(requestedId);
         res.status(201).send(entry);
@@ -83,7 +99,7 @@ app.put('/entries/reactions/:id', (req, res) => {
     const requestedId = parseInt(req.params.id);
     const reaction = req.body.target;
     
-    if (id || entriesArr.id.includes(id)) {
+    if (requestedId || entriesArr.id.includes(requestedId)) {
         Entry.changeReaction(requestedId, reaction);
         res.status(201).json({ message: 'Reaction successfully updated'});
     } else {
@@ -94,10 +110,10 @@ app.put('/entries/reactions/:id', (req, res) => {
 // Delete entry
 app.delete('/entries/delete/:id', (req, res) => {
     const entriesArr = Entry.all;
-    let requestedEntry = parseInt(req.params.id);
+    let requestedId = parseInt(req.params.id);
     
-    if (id || entriesArr.id.includes(id)) {
-        Entry.deleteEntry(requestedEntry);
+    if (requestedId || entriesArr.id.includes(requestedId)) {
+        Entry.deleteEntry(requestedId);
         res.json({ message: `Entry of id ${id} successfully deleted`});
     } else {
         return res.status(404).json({ message: `Entry of id ${id} not found` });

@@ -14,8 +14,6 @@ class Entry {
    
     // READ all entries
     static get all() {
-        if (!entryData) return 'no data';
-        if (!Array.isArray(entryData)) return 'not an array'
         const entries = entryData.map((je) => new Entry(je));
         return entries;
     }
