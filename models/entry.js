@@ -35,7 +35,7 @@ class Entry {
     // CREATE entry
     static addEntry(data) {
         const newId = entryData.length + 1;
-        const newEntry = new Entry({ id: newId, ...data});
+        const newEntry = new Entry({ id: newId, ...data });
         entryData.push(newEntry);
         return newEntry;
     }

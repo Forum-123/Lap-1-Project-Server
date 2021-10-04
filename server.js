@@ -44,25 +44,6 @@ app.get('/entries/comments/:id', (req, res) => {
     res.status(404).json({ message: `Entry of id ${requestedId} not found` });
 });
 
-// Get a gif based on a search term
-app.get('/gifs/:search', (req, res) => {
-    let searchWord = req.params.search;
-    let possibleGifs = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${searchWord}`
-
-    // Search term is required
-    if (!searchWord) {
-        return res.status(400).json({ message: 'Please enter a search word' });
-    } else {
-        fetch(possibleGifs)
-            .then(function (gifs) {
-                res.send(gifs.data.data);
-            })
-            .catch(function (error) {
-                return res.json({ message: `${error.message}` })
-            });
-    }
-});
-
 // Post new entry
 app.post('/entries', (req, res) => {
     const newData = req.body;
