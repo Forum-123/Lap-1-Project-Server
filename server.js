@@ -6,6 +6,7 @@ app.use(express.json());
 app.use(cors());
 
 const Entry = require('./models/entry'); // Obtain the Entry class
+const { addComment } = require('./models/entry');
 
 // Get all entries
 app.get('/entries', (req, res) => {
@@ -61,15 +62,16 @@ app.post('/entries', (req, res) => {
 app.post('/entries/comments/:id', (req, res) => {
     const entriesArr = Entry.all;
     const requestedId = parseInt(req.params.id);
-    const newComment = req.body.comment;
+    const newComment = req.body.comments;
+    console.log(req.body)
 
-    // Check an id is requested or if it is requested, if it is in the existing entries
-    if (requestedId || entriesArr.id.includes(requestedId)) {
-        Entry.addComment(requestedId, newComment);
-        const entry = Entry.getEntry(requestedId);
-        res.status(201).send(entry);
-    } else {
-        return res.status(404).json({ message: `Entry of id ${id} not found` });
+    for (let e of entriesArr) {
+        if (e.id === requestedId) {
+            let addedComment = Entry.addComment(requestedId, newComment);
+            res.status(201).send(addedComment);
+        } else {
+            return res.status(404).json({ message: `Entry of id ${requestedId} not found` });
+        }
     }
 });
 
@@ -91,13 +93,16 @@ app.put('/entries/reactions/:id', (req, res) => {
 app.delete('/entries/delete/:id', (req, res) => {
     const entriesArr = Entry.all;
     let requestedId = parseInt(req.params.id);
-    
-    if (requestedId || entriesArr.id.includes(requestedId)) {
-        Entry.deleteEntry(requestedId);
-        res.json({ message: `Entry of id ${id} successfully deleted`});
-    } else {
-        return res.status(404).json({ message: `Entry of id ${id} not found` });
+    console.log(requestedId)
+
+    for (let e of entriesArr) {
+        if (e.id === requestedId) {
+            Entry.deleteEntry(requestedId);
+            return res.status(204).json({ message: `Entry of id ${requestedId} successfully deleted` });
+        }
     }
+
+    return res.status(404).json({ message: `Entry of id ${requestedId} not found` });
 });
 
 module.exports = app;
