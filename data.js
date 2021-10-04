@@ -1,7 +1,7 @@
 
 let entryData = {
     e1: {
-        id: "e1",
+        id: 1,
         title: "Six arrested on suspicion of poaching in Wiltshire",
         message: "Police are called to the Devizes area and find animal remains, two catapults and a big hunting lamp.",
         date: "Oct 04, 2021",
@@ -15,13 +15,13 @@ let entryData = {
         },
         comments: {
             c1: {
-                text = "I feel like starting an argument, so: What actor, living or dead, any gender, was the greatest combination of acting talent, physical beauty and pure star-power charisma?",
-                author = "Scott Renshaw"
+                text: "I feel like starting an argument, so: What actor, living or dead, any gender, was the greatest combination of acting talent, physical beauty and pure star-power charisma?",
+                author: "Scott Renshaw"
             }
         }
     },
     e2: {
-        id: "e2",
+        id: 2,
         title: "Fuel crisis",
         message: "Military begins deliveries to petrol stations as driver shortage continues",
         date: "Oct 04 2021",
@@ -34,10 +34,10 @@ let entryData = {
         },
         comments: {
             c1: {
-                text = "",
-                author = ""
+                text: "",
+                author: ""
             }
-        }, 
+        }
     },
     e3: {
         id: "e3",
@@ -53,13 +53,13 @@ let entryData = {
         },
         comments: {
             c1: {
-                text = "",
-                author = ""
+                text: "",
+                author: ""
             }
-        }, 
+        }
     },
     e4: {
-        id: "e4",
+        id: 4,
         title: "Amid Beijing's rising assertiveness, tension spikes between EU-China ties",
         message: "Tel Aviv [Israel], October 3 (ANI): With the increase in China's assertiveness across the global geopolitical landscape, Beijing's relationship with the European Union (EU) has declined.",
         date: "Oct 04 2021",
@@ -72,13 +72,13 @@ let entryData = {
         },
         comments: {
             c1: {
-                text = "",
-                author = ""
+                text: "",
+                author: ""
             }
-        }, 
+        }
     },
     e5: {
-        id: "e5",
+        id: 5,
         title: "Australia-EU trade talks delayed amid submarine deal fallout",
         message: "BRUSSELS (AP) — A round of free trade talks between the European Union and Australia has been postponed by one month in the wake of a dispute over the Australian government’s decision to cancel a multibillion-euro French submarine deal, EU and Australian officials said Friday. EU commission chief spokesman Eric Mamer said the decision to delay the meeting was taken by the EU’s executive arm. Asked whether it was a retaliation measure, Mamer said “the EU is not in the business of punishing anybody.“",
         date: "Oct 01 2021",
@@ -91,13 +91,13 @@ let entryData = {
         },
         comments: {
             c1: {
-                text = "",
-                author = ""
+                text: "",
+                author: ""
             }
-        }, 
+        } 
     },
     e6: {
-        id: "e6",
+        id: 6,
         title: "Facebook Chooses 'Profit Over Saftey,' Says Whistleblower",
         message: "The whistleblower who shared a trove of Facebook documents alleging the social media giant knew its products were fueling hate and harming children's mental health revealed her identity Sunday in a televised interview, and accused the company of choosing \"profit over safety.\" Frances Haugen, a 37-year-old data scientist from Iowa, has worked for companies including Google and Pinterest -- but said in an interview with CBS news show \"60 Minutes\" that Facebook was \"substantially worse\" than anything she had seen before.",
         date: "Oct 03 2021",
@@ -110,13 +110,13 @@ let entryData = {
         },
         comments: {
             c1: {
-                text = "",
-                author = ""
+                text: "",
+                author: ""
             }
-        }, 
+        } 
     },
     e7: {
-        id: "e7",
+        id: 7,
         title: "Small Plane Crashes Near Milan, Killing All on Board",
         message: "Eight people died when a passenger plane hit a building shortly after departing from Milans's Linate Airport",
         date: "Oct 04 2021",
@@ -129,13 +129,13 @@ let entryData = {
         },
         comments: {
             c1: {
-                text = "",
-                author = ""
+                text: "",
+                author: ""
             }
-        }, 
+        } 
     },
     e8: {
-        id: "e8",
+        id: 8,
         title: "Morrisons takeover auction battle ends with £7bn bid from private equity giant",
         message: "The saga first began when Clayton, Dubilier & Rice first made an approach for the Bradford-based grocer in June. The battle to buy supermarket Morrisons has ended with private equity giant Clayton, Dubilier & Rice (CD&R) outbidding Fortress in a dramatic auction process. The stock market’s Takeover Panel said Fortress offered 286p per Morrisons ordinary share, while CD&R offered 287p – meaning its bid amounts to an offer of almost £7 billion.",
         date: "Oct 02 2021",
@@ -148,13 +148,14 @@ let entryData = {
         },
         comments: {
             c1: {
-                text = "",
-                author = ""
+                text: "",
+                author: ""
             }
-        }, 
-    },
+        }
+    }, 
+
     e9: {
-        id: "e9",
+        id: 9,
         title: "Michelangelo’s David ‘manhood’ covered to avoid Dubai outrage",
         message: "Bologna: A 3D-printed replica of Michelangelo’s David at the Dubai Expo has been mired in controversy after organisers blocked views of his buttocks and manhood to respect Muslim culture. According to the Italian daily La Repubblica, Expo staff agonised over how they could display the five-metre-tall replica of the Renaissance masterpiece without offending conservative Muslims. They eventually decided to place the statue within an octagonal glass gallery spanning two floors, one level with the warrior’s muscular legs and another with his eyes.",
         date: "Oct 04 2021",
@@ -167,13 +168,13 @@ let entryData = {
         },
         comments: {
             c1: {
-                text = "",
-                author = ""
+                text: "",
+                author: ""
             }
-        }, 
-    },
+        }
+    }, 
     e10: {
-        id: "e10",
+        id: 10,
         title: "European mission to Mercury reaches planet for the first time",
         message: "The European space mission to Mercury, BepiColombo, flew past Mercury for the first time during the night from Friday to Saturday, the European Space Agency reported. The probe flew less than 200 kilometers above the planet’s surface, taking pictures and taking measurements. BepiColombo was launched in October 2018. Consisting of two satellites, one European and one Japanese, the probe is set to orbit the innermost planet of our solar system by 2025. There, the devices will investigate, among other things, how the planet is constructed. BepiColombo also aims to find out how a planet can form when it orbits close to a star. To reach Mercury, BepiColombo makes nine flights relatively close to a planet. It did that once by Earth, twice by Venus and now six flights by Mercury. The last flight past Venus took place in August. These maneuvers allow BepiColombo to reach the correct speed and orbit to safely orbit Mercury.",
         date: "Oct 03 2021",
@@ -186,9 +187,9 @@ let entryData = {
         },
         comments: {
             c1: {
-                text = "",
-                author = ""
+                text: "",
+                author: ""
             }
-        }, 
-    },
+        }
+    }
 }
