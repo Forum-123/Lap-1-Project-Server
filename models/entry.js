@@ -14,8 +14,7 @@ class Entry {
    
     // READ all entries
     static get all() {
-        const entries = entryData.map((je) => new Entry(je));
-        return entries;
+        return entryData;
     }
 
     // READ one entry
@@ -40,19 +39,10 @@ class Entry {
 
     // CREATE comment
     static addComment(id, comment, username) {
-        // console.log(entryData.comments)
-        // const newComment = `c${entryData.comments.length + 1}`;
         const selectedEntry = Entry.getEntry(id);
-        console.log(selectedEntry.comments)
-        console.log(selectedEntry.comments.length)
-        const newCommentId = selectedEntry.comments.length + 1;
-        console.log(newCommentId)
-        const newComment = new Entry.comments({ id: newCommentId, text: comment, author: username })
-        selectedEntry.comments.push(newComment);
-        return newComment;
-        // const seenEntry = Entry.getEntry(id);
-        // seenEntry.comments.push(comment);
-        // return 
+        const newCommentId = selectedEntry[0].comments.length + 1;
+        selectedEntry[0].comments.push({ id: newCommentId, text: comment, author: username });
+        return selectedEntry;
     }
 
     // UPDATE entry's message
