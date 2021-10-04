@@ -11,7 +11,7 @@ class Entry {
         this.reactions = { happy: 0, love: 0, angry: 0 }
         this.comments = [];
     }
-   
+
     // READ all entries
     static get all() {
         const entries = entryData.map((je) => new Entry(je));
@@ -35,7 +35,7 @@ class Entry {
     // CREATE entry
     static addEntry(data) {
         const newId = entryData.length + 1;
-        const newEntry = new Entry({ id: newId, ...data});
+        const newEntry = new Entry({ id: newId, ...data });
         entryData.push(newEntry);
         return newEntry;
     }
