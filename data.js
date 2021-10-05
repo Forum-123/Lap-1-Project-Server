@@ -6,7 +6,7 @@ let entryData = [
         message: "Police are called to the Devizes area and find animal remains, two catapults and a big hunting lamp.",
         date: "Oct 04, 2021",
         username: "BBC News (UK)",
-        gifUrl: "https://twitter.com/i/status/1439381389854449669",
+        gifUrl: "https://media.giphy.com/media/3oKIPlpftSI37ei5QA/giphy.gif",
         //  or <iframe src="https://giphy.com/embed/3oKIPlpftSI37ei5QA" width="480" height="331" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/scary-bunny-rabbit-3oKIPlpftSI37ei5QA">via GIPHY</a></p>
         reactions: {
             happy: 2,
