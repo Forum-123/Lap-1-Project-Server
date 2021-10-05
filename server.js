@@ -8,13 +8,22 @@ app.use(express.json());
 app.use(cors());
 
 app.get('/', (req, res) => {
-    res.json('Server is running');
+    try {    
+        res.json('Server is running');
+    } catch {
+        res.status(500).json({ message: "Internal server error" })
+    }
 });
 
 // Get all entries
 app.get('/entries', (req, res) => {
     const entriesArr = Entry.all;
-    res.json(entriesArr);
+    try {    
+        res.json(entriesArr);
+    } catch {
+        res.status(404).json({ message: "Data not found" })
+    }
+
 });
 
 // Get all entries by a particular user
@@ -123,7 +132,7 @@ app.delete('/entries/delete/:id', (req, res) => {
     for (let e of entriesArr) {
         if (e.id === requestedId) {
             Entry.deleteEntry(requestedId);
-            return res.status(204).json({ message: `Entry of id ${requestedId} successfully deleted` });
+            return res.status(202).json({ message: `Entry of id ${requestedId} successfully deleted` });
         }
     }
 
@@ -140,7 +149,7 @@ app.delete('/entries/comments/delete/:entryId/:commentId', (req, res) => {
     for (let e of entriesArr) {
         if (e.id === requestedEntry) {
             Entry.deleteComment(requestedEntry, requestedComment);
-            return res.status(204).json({ message: `Comment ${requestedComment} from entry of id ${requestedEntry} successfully deleted` });
+            return res.status(202).json({ message: `Comment ${requestedComment} from entry of id ${requestedEntry} successfully deleted` });
         }
     }
 
