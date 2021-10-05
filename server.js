@@ -1,11 +1,15 @@
 const express = require('express');
-const app = express();
 const cors = require('cors');
+const Entry = require('./models/entry'); // Obtain the Entry class
+
+const app = express();
 
 app.use(express.json());
 app.use(cors());
 
-const Entry = require('./models/entry'); // Obtain the Entry class
+app.get('/', (req, res) => {
+    res.json('Server is running');
+});
 
 // Get all entries
 app.get('/entries', (req, res) => {
