@@ -1,4 +1,3 @@
-
 let entryData = [
     {
         id: 1,
@@ -53,13 +52,7 @@ let entryData = [
             love: 15,
             angry: 2,
         },
-        comments: [
-            { 
-                id: 1, 
-                text: "",
-                author: ""
-            }
-        ]
+        comments: []
     },
     {
         id: 4,
@@ -138,6 +131,11 @@ let entryData = [
                 id: 1, 
                 text: "",
                 author: ""
+            },
+            { 
+                id: 2, 
+                text: "",
+                author: ""
             }
         ]
     },
@@ -153,13 +151,7 @@ let entryData = [
             love: 20,
             angry: 47,
         },
-        comments: [
-            { 
-                id: 1, 
-                text: "",
-                author: ""
-            }
-        ]
+        comments: []
     }, 
     {
         id: 9,
@@ -176,6 +168,16 @@ let entryData = [
         comments: [
             { 
                 id: 1, 
+                text: "",
+                author: ""
+            },
+            { 
+                id: 2, 
+                text: "",
+                author: ""
+            },
+            { 
+                id: 3, 
                 text: "",
                 author: ""
             }
