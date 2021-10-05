@@ -4,10 +4,10 @@ class Entry {
     constructor(data) {
         this.id = data.id;
         this.title = data.title;
-        this.message = data.message;
-        this.date = new Date();
         this.username = data.username;
-        this.gifUrl = data.gifUrl;
+        this.message = data.message;
+        this.gif = data.gif;
+        this.date = `${new Date()}`;
         this.reactions = { happy: 0, love: 0, angry: 0 };
         this.comments = [];
     }
