@@ -41,8 +41,9 @@ class Entry {
     static addComment(id, comment, username) {
         const selectedEntry = Entry.getEntry(id);
         const newCommentId = selectedEntry[0].comments.length + 1;
-        selectedEntry[0].comments.push({ id: newCommentId, text: comment, author: username });
-        return selectedEntry;
+        let newCom = { id: newCommentId, text: comment, author: username };
+        selectedEntry[0].comments.push(newCom)
+        return newCom;
     }
 
     // UPDATE entry's message
