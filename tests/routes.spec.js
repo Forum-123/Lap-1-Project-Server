@@ -1,13 +1,14 @@
 const request = require('supertest');
 const app = require('../server.js');
-const data = require('../data')
+
+
 
 describe('APi routes', (done) => {
 
     let api;
 
     beforeAll(() => {
-        api = app.listen(2000, () => {
+        api = app.listen(6000, () => {
             console.log(`Express server running on port 2000`)
         });
 
@@ -60,6 +61,7 @@ describe('APi routes', (done) => {
             .get("/entries/comments/0")
             .expect({ "message": "Entry of id 0 not found" }, done);
     })
+
     // test Post route when posting a new comment on a particular entry
     test(" Post new comment on a particular entry", (done) => {
         let testComments =
@@ -73,6 +75,32 @@ describe('APi routes', (done) => {
             .set('Accept', 'application/json') //set - will set what we expect to get from this
             .expect('content-Type', /json/) // expect to get back some json
             .expect({ id: 2, ...testComments })
+            .expect(201, done) // 201 = status code when something is successfully created
+    })
+
+    // test Post route when posting a new comment on a particular entry
+    test(" Post new comment on a particular entry", (done) => {
+        let testEntry = {
+            "title": "Hello world",
+            "username": "testuser1",
+            "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "gif": "hello"
+        }
+
+        request(api)
+            .post('/entries')
+            .send(testEntry)
+            .set('Accept', 'application/json') //set - will set what we expect to get from this
+            .expect('content-Type', /json/) // expect to get back some json
+            .expect({
+                id: 11, ...testEntry, "date": `${new Date()}`,
+                "reactions": {
+                    "happy": 0,
+                    "love": 0,
+                    "angry": 0
+                },
+                "comments": []
+            })
             .expect(201, done) // 201 = status code when something is successfully created
     })
 
