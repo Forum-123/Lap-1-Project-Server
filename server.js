@@ -9,7 +9,7 @@ app.use(cors());
 
 app.get('/', (req, res) => {
     try {
-        res.json('Server is running');
+        res.send('Server is running');
     } catch {
         res.status(500).json({ message: 'Internal server error' })
     }
@@ -18,6 +18,7 @@ app.get('/', (req, res) => {
 // Get all entries
 app.get('/entries', (req, res) => {
     const entriesArr = Entry.all;
+
     try {
         res.json(entriesArr);
     } catch {
@@ -82,6 +83,7 @@ app.post('/entries/comments/:id', (req, res) => {
             return res.status(201).send(addedComment);
         }
     }
+
     res.status(404).json({ message: `Entry of id ${requestedId} not found` });
 });
 
@@ -126,7 +128,6 @@ app.put('/entries/reactions/:id', (req, res) => {
 app.delete('/entries/delete/:id', (req, res) => {
     const entriesArr = Entry.all;
     let requestedId = parseInt(req.params.id);
-    console.log(requestedId)
 
     for (let e of entriesArr) {
         if (e.id === requestedId) {
@@ -143,7 +144,6 @@ app.delete('/entries/comments/delete/:entryId/:commentId', (req, res) => {
     const entriesArr = Entry.all;
     let requestedEntry = parseInt(req.params.entryId);
     let requestedComment = parseInt(req.params.commentId)
-    console.log(`${requestedEntry}, ${requestedEntry}`)
 
     for (let e of entriesArr) {
         if (e.id === requestedEntry) {
