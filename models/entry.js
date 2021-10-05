@@ -6,7 +6,7 @@ class Entry {
         this.title = data.title;
         this.username = data.username;
         this.message = data.message;
-        this.gif = data.gif;
+        this.gifUrl = data.gifUrl;
         this.date = `${new Date()}`;
         this.reactions = { happy: 0, love: 0, angry: 0 };
         this.comments = [];
