@@ -1,7 +1,7 @@
 {
-  "name": "server",
+  "name": "journaling-website",
   "version": "1.0.0",
-  "description": "A community journaling website",
+  "description": "Lap 1: A community journaling website",
   "main": "index.js",
   "scripts": {
     "test": "jest --watchAll --silent",
@@ -9,8 +9,15 @@
     "dev": "nodemon index.js",
     "coverage": "jest --coverage"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Forum-123/Lap-1-Project-Server.git"
+  },
+  "author": "Hamsa, Max and Forum",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Forum-123/Lap-1-Project-Server/issues"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1"
