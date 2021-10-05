@@ -11,7 +11,7 @@ class Entry {
         this.reactions = { happy: 0, love: 0, angry: 0 };
         this.comments = [];
     }
-   
+
     // READ all entries
     static get all() {
         return entryData;
@@ -78,3 +78,4 @@ class Entry {
 }
 
 module.exports = Entry;
+
