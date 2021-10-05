@@ -107,6 +107,7 @@ app.put('/entries/:id', (req, res) => {
 app.put('/entries/reactions/:id', (req, res) => {
     const entriesArr = Entry.all;
     const requestedId = parseInt(req.params.id);
+
     const newReaction = req.body.reaction;
 
     // object.hasOwnProperty('string') returns true if 'string' is a key in 'object'
@@ -117,6 +118,8 @@ app.put('/entries/reactions/:id', (req, res) => {
                 return res.status(201).json({ message: 'Reaction successfully updated' });
             }
         }
+
+
     } else {
         return res.status(400).json({ message: `${newReaction} is an invalid input` })
     }
@@ -150,6 +153,7 @@ app.delete('/entries/comments/delete/:entryId/:commentId', (req, res) => {
             Entry.deleteComment(requestedEntry, requestedComment);
             return res.status(202).json({ message: `Comment ${requestedComment} from entry of id ${requestedEntry} successfully deleted` });
         }
+
     }
 
     res.status(404).json({ message: `Comment ${requestedComment} from entry of id ${requestedEntry} not found` });
