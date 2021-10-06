@@ -17,6 +17,11 @@ let entryData = [
                 id: 1, 
                 text: "I feel like starting an argument, so: What actor, living or dead, any gender, was the greatest combination of acting talent, physical beauty and pure star-power charisma?",
                 author: "Scott Renshaw"
+            },
+            { 
+                id: 2, 
+                text: "comment on poaching",
+                author: "user 2"
             }
         ]
     },
@@ -35,8 +40,13 @@ let entryData = [
         comments: [
             { 
                 id: 1, 
-                text: "",
-                author: ""
+                text: "comment on driver shortage",
+                author: "user 1"
+            },
+            { 
+                id: 2, 
+                text: "another comment",
+                author: "user 2"
             }
         ]
     },
@@ -69,8 +79,13 @@ let entryData = [
         comments: [
             { 
                 id: 1, 
-                text: "",
-                author: ""
+                text: "comment on tensions",
+                author: "user 1"
+            },
+            { 
+                id: 2, 
+                text: "another comment",
+                author: "user 2"
             }
         ]
     },
@@ -89,8 +104,13 @@ let entryData = [
         comments: [
             { 
                 id: 1, 
-                text: "",
-                author: ""
+                text: "comment on trade talks",
+                author: "user 1"
+            },
+            { 
+                id: 2, 
+                text: "another comment",
+                author: "user 2"
             }
         ]
     },
@@ -109,8 +129,13 @@ let entryData = [
         comments: [
             { 
                 id: 1, 
-                text: "",
-                author: ""
+                text: "comment on facebook",
+                author: "user 1"
+            },
+            { 
+                id: 2, 
+                text: "another comment",
+                author: "user 2"
             }
         ]
     },
@@ -129,13 +154,13 @@ let entryData = [
         comments: [
             { 
                 id: 1, 
-                text: "",
-                author: ""
+                text: "comment on plane crash",
+                author: "user 1"
             },
             { 
                 id: 2, 
-                text: "",
-                author: ""
+                text: "another comment",
+                author: "user 2"
             }
         ]
     },
@@ -168,18 +193,18 @@ let entryData = [
         comments: [
             { 
                 id: 1, 
-                text: "",
-                author: ""
+                text: "comment on censorship",
+                author: "user 1"
             },
             { 
                 id: 2, 
-                text: "",
-                author: ""
+                text: "another comment",
+                author: "user 2"
             },
             { 
                 id: 3, 
-                text: "",
-                author: ""
+                text: "a third comment!",
+                author: "no eyed dear"
             }
         ]
     }, 
@@ -198,8 +223,13 @@ let entryData = [
         comments: [
             { 
                 id: 1, 
-                text: "",
-                author: ""
+                text: "i flew to mercury once",
+                author: "user 1"
+            },
+            { 
+                id: 2, 
+                text: "i dont think space exists",
+                author: "user 2"
             }
         ]
     }
