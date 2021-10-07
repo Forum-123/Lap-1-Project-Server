@@ -6,20 +6,19 @@ let entryData = [
         date: "Oct 04, 2021",
         username: "BBC News (UK)",
         gifUrl: "https://media.giphy.com/media/3oKIPlpftSI37ei5QA/giphy.gif",
-        //  or <iframe src="https://giphy.com/embed/3oKIPlpftSI37ei5QA" width="480" height="331" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/scary-bunny-rabbit-3oKIPlpftSI37ei5QA">via GIPHY</a></p>
         reactions: {
             happy: 2,
             love: 6,
             angry: 8,
         },
         comments: [
-            { 
-                id: 1, 
+            {
+                id: 1,
                 text: "I feel like starting an argument, so: What actor, living or dead, any gender, was the greatest combination of acting talent, physical beauty and pure star-power charisma?",
                 author: "Scott Renshaw"
             },
-            { 
-                id: 2, 
+            {
+                id: 2,
                 text: "comment on poaching",
                 author: "user 2"
             }
@@ -38,13 +37,13 @@ let entryData = [
             angry: 98,
         },
         comments: [
-            { 
-                id: 1, 
+            {
+                id: 1,
                 text: "comment on driver shortage",
                 author: "user 1"
             },
-            { 
-                id: 2, 
+            {
+                id: 2,
                 text: "another comment",
                 author: "user 2"
             }
@@ -77,13 +76,13 @@ let entryData = [
             angry: 2,
         },
         comments: [
-            { 
-                id: 1, 
+            {
+                id: 1,
                 text: "comment on tensions",
                 author: "user 1"
             },
-            { 
-                id: 2, 
+            {
+                id: 2,
                 text: "another comment",
                 author: "user 2"
             }
@@ -102,13 +101,13 @@ let entryData = [
             angry: 3,
         },
         comments: [
-            { 
-                id: 1, 
+            {
+                id: 1,
                 text: "comment on trade talks",
                 author: "user 1"
             },
-            { 
-                id: 2, 
+            {
+                id: 2,
                 text: "another comment",
                 author: "user 2"
             }
@@ -127,13 +126,13 @@ let entryData = [
             angry: 6,
         },
         comments: [
-            { 
-                id: 1, 
+            {
+                id: 1,
                 text: "comment on facebook",
                 author: "user 1"
             },
-            { 
-                id: 2, 
+            {
+                id: 2,
                 text: "another comment",
                 author: "user 2"
             }
@@ -152,13 +151,13 @@ let entryData = [
             angry: 1,
         },
         comments: [
-            { 
-                id: 1, 
+            {
+                id: 1,
                 text: "comment on plane crash",
                 author: "user 1"
             },
-            { 
-                id: 2, 
+            {
+                id: 2,
                 text: "another comment",
                 author: "user 2"
             }
@@ -177,7 +176,7 @@ let entryData = [
             angry: 47,
         },
         comments: []
-    }, 
+    },
     {
         id: 9,
         title: "Michelangelo’s David ‘manhood’ covered to avoid Dubai outrage",
@@ -191,23 +190,23 @@ let entryData = [
             angry: 4,
         },
         comments: [
-            { 
-                id: 1, 
+            {
+                id: 1,
                 text: "comment on censorship",
                 author: "user 1"
             },
-            { 
-                id: 2, 
+            {
+                id: 2,
                 text: "another comment",
                 author: "user 2"
             },
-            { 
-                id: 3, 
+            {
+                id: 3,
                 text: "a third comment!",
                 author: "no eyed dear"
             }
         ]
-    }, 
+    },
     {
         id: 10,
         title: "European mission to Mercury reaches planet for the first time",
@@ -221,13 +220,13 @@ let entryData = [
             angry: 34,
         },
         comments: [
-            { 
-                id: 1, 
+            {
+                id: 1,
                 text: "i flew to mercury once",
                 author: "user 1"
             },
-            { 
-                id: 2, 
+            {
+                id: 2,
                 text: "i dont think space exists",
                 author: "user 2"
             }
