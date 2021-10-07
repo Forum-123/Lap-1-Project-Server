@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Lap 1: A community journaling website",
   "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
   "scripts": {
     "test": "jest --watchAll --silent",
     "start": "node index.js",
