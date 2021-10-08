@@ -144,7 +144,7 @@ let entryData = [
         message: "Eight people died when a passenger plane hit a building shortly after departing from Milans's Linate Airport",
         date: "Oct 04 2021",
         username: "The New York Times",
-        gifUrl: "https://giphy.com/media/A5cMONNFFwPgA",
+        gifUrl: "https://giphy.com/embed/A5cMONNFFwPgA",
         reactions: {
             happy: 0,
             love: 0,
