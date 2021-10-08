@@ -28,18 +28,19 @@ The repo for the client side of the application can be found [here](https://gith
 
 ## Process
 
-* We started by creating two different repositories for both the client and server.
-* Created an initial file structure for both repositories
-* Inside each of these repositories we created a Kanban board with all the tasks required.
-* Initially we started working on separate tasks including the tests for the server side, setting up the Giphy API and creating the RESTful routes (CRUD)
-* We stored the example data within a JS object and created a matching class so that we could later add to this data
-* Then we added JS to the client side to fetch data from our server and generate posts on our website.
-* Finished by adding styling to the client side to improve the user interface.
+* Started by creating two different repositories for both the client and server.
+* Created an initial file structure for both repositories.
+* Inside each of these repositories, we created a Kanban board with all the tasks required.
+* Initially we started working on separate tasks including the tests for the server side, setting up the Giphy API and creating the RESTful routes (CRUD).
+* Stored the example data within a JS object and created a matching class so that we could later add to this data.
+* Added JS to the client side to fetch data from our server and generate posts on our website.
+* Finished by adding styling to the client side to improve the user interface and fixed up test suites.
+
 ## Wins & Challenges
 
 ### Wins
 
-* Worked seamlessly as a team
+* Worked seamlessly as a team.
 * Website successfully deployed on Netlify.
 * Server successfully deployed on Heroku.
 * Managed to get a coverage of more than 95%.
@@ -50,7 +51,6 @@ The repo for the client side of the application can be found [here](https://gith
 ### Challenges
 
 * Experienced a few merge conflicts and Git issues when pulling from the repo. The solution was to apply the Driver and Navigator approach when a specific task was being worked on by more than one team member.
-
 
 ## Future Features
 
