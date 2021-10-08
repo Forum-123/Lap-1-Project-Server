@@ -59,4 +59,5 @@ The repo for the client side of the application can be found [here](https://gith
 
 ## Bugs
 
-* Coverage of the client side testing does not display for each file
+* Coverage of the client side testing does not display for each file.
+* Some of the buttons on the website do not function as intended, such as the ability to add comments is not possible on some parts of the website.
